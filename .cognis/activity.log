@@ -37,3 +37,4 @@
 2026-02-07T14:46:26  docs: expand examples
 2026-03-11T09:03:33  test: strengthen coverage
 2024-06-02T11:59:49  chore(fixtures): add type hints to the public API
+2024-06-29T18:16:56  test(config): add a JSON schema for output
