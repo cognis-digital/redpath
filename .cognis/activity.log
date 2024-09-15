@@ -41,3 +41,4 @@
 2024-07-09T13:33:03  build(format): add type hints to the public API
 2024-08-07T08:50:10  feat(scoring): extract the scorer
 2024-08-17T15:07:17  docs(io): add color + severity icons
+2024-09-15T10:24:24  style(mcp): extract the scorer
