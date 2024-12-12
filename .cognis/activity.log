@@ -46,3 +46,4 @@
 2024-10-23T12:58:38  fix(rules): load rules lazily for faster startup
 2024-11-03T19:15:45  refactor(deps): bump the dev toolchain
 2024-11-13T14:32:52  feat: with great power comes great test coverage
+2024-12-12T09:49:59  feat: PROMETHEUS unbound
