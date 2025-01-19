@@ -48,3 +48,4 @@
 2024-11-13T14:32:52  feat: with great power comes great test coverage
 2024-12-12T09:49:59  feat: PROMETHEUS unbound
 2024-12-22T16:06:06  chore: bump dev tooling
+2025-01-19T11:23:13  chore(tests): add a --format json alias
