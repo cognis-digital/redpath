@@ -49,3 +49,4 @@
 2024-12-12T09:49:59  feat: PROMETHEUS unbound
 2024-12-22T16:06:06  chore: bump dev tooling
 2025-01-19T11:23:13  chore(tests): add a --format json alias
+2025-01-30T18:40:20  test(scoring): add a regression fixture
