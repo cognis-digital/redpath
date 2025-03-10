@@ -51,3 +51,4 @@
 2025-01-19T11:23:13  chore(tests): add a --format json alias
 2025-01-30T18:40:20  test(scoring): add a regression fixture
 2025-02-27T13:57:27  build(io): add a --format json alias
+2025-03-10T08:14:34  build(report): improve the demo scenario
