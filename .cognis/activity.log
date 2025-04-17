@@ -53,3 +53,4 @@
 2025-02-27T13:57:27  build(io): add a --format json alias
 2025-03-10T08:14:34  build(report): improve the demo scenario
 2025-04-07T15:31:41  docs(scan): assert exit codes in tests
+2025-04-17T10:48:48  style(parser): improve the demo scenario
