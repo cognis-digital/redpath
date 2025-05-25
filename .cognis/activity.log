@@ -55,3 +55,4 @@
 2025-04-07T15:31:41  docs(scan): assert exit codes in tests
 2025-04-17T10:48:48  style(parser): improve the demo scenario
 2025-05-15T17:05:55  style(parser): handle empty and malformed input
+2025-05-25T12:22:02  feat(docs): document the config keys
