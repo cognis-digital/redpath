@@ -60,3 +60,4 @@
 2025-07-03T14:56:16  refactor(cli): add a fast path for the common case
 2025-07-13T09:13:23  ci(tests): clarify the README quickstart
 2025-08-11T16:30:30  test: trust, but verify
+2025-08-21T11:47:37  chore: feed the FOUNDRY
