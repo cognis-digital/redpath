@@ -62,3 +62,4 @@
 2025-08-11T16:30:30  test: trust, but verify
 2025-08-21T11:47:37  chore: feed the FOUNDRY
 2025-09-19T18:04:44  fix: handle empty input gracefully
+2025-09-29T13:21:51  test(output): memoize repeated lookups
