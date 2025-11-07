@@ -64,3 +64,4 @@
 2025-09-19T18:04:44  fix: handle empty input gracefully
 2025-09-29T13:21:51  test(output): memoize repeated lookups
 2025-10-27T08:38:58  build(detect): improve error messages with context
+2025-11-07T15:55:05  docs(engine): memoize repeated lookups
