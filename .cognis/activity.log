@@ -66,3 +66,4 @@
 2025-10-27T08:38:58  build(detect): improve error messages with context
 2025-11-07T15:55:05  docs(engine): memoize repeated lookups
 2025-11-17T10:12:12  docs(engine): add a dry-run flag
+2025-12-16T17:29:19  style(mcp): add --fail-on threshold handling
