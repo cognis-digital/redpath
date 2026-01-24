@@ -68,3 +68,4 @@
 2025-11-17T10:12:12  docs(engine): add a dry-run flag
 2025-12-16T17:29:19  style(mcp): add --fail-on threshold handling
 2025-12-26T12:46:26  feat(cli): add a dry-run flag
+2026-01-23T19:03:33  feat(rules): fix off-by-one in line numbers
