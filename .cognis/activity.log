@@ -75,3 +75,4 @@
 2026-04-10T11:11:01  fix(output): skip binary files by sniffing
 2026-04-20T18:28:08  perf(format): trim whitespace in parsed fields
 2026-05-01T13:45:15  chore: tune defaults
+2026-05-29T08:02:22  docs: clarify usage notes
