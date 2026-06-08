@@ -1,0 +1,14 @@
+[
+  {
+    "user": "user001@corp",
+    "hops_to_da": "7",
+    "kerberoastable": false,
+    "tier": "tier2"
+  },
+  {
+    "user": "user002@corp",
+    "hops_to_da": "9",
+    "kerberoastable": false,
+    "tier": "tier2"
+  }
+]

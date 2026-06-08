@@ -1,0 +1,15 @@
+[
+  {
+    "user": "former-admin@corp",
+    "hops_to_da": "1",
+    "kerberoastable": false,
+    "tier": "tier0",
+    "note": "account should be disabled"
+  },
+  {
+    "user": "contractor-2023@corp",
+    "hops_to_da": "4",
+    "kerberoastable": true,
+    "tier": "tier1"
+  }
+]

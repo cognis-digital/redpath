@@ -1,0 +1,29 @@
+[
+  {
+    "user": "helpdesk@corp",
+    "hops_to_da": "2",
+    "kerberoastable": false,
+    "tier": "tier1",
+    "path": [
+      "helpdesk",
+      "ITadmin",
+      "DA"
+    ]
+  },
+  {
+    "user": "svc-backup@corp",
+    "hops_to_da": "1",
+    "kerberoastable": true,
+    "tier": "tier0",
+    "path": [
+      "svc-backup",
+      "DA"
+    ]
+  },
+  {
+    "user": "svc-monitoring@corp",
+    "hops_to_da": "3",
+    "kerberoastable": true,
+    "tier": "tier1"
+  }
+]
