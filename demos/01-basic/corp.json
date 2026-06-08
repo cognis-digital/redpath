@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    "JDOE@CORP.LOCAL",
+    "HELPDESK@CORP.LOCAL",
+    "WS01.CORP.LOCAL",
+    "SVC_BACKUP@CORP.LOCAL",
+    "TIER1ADMINS@CORP.LOCAL",
+    "DOMAIN ADMINS@CORP.LOCAL",
+    "CORP.LOCAL"
+  ],
+  "edges": [
+    {"src": "JDOE@CORP.LOCAL", "dst": "HELPDESK@CORP.LOCAL", "kind": "MemberOf"},
+    {"src": "HELPDESK@CORP.LOCAL", "dst": "WS01.CORP.LOCAL", "kind": "AdminTo"},
+    {"src": "WS01.CORP.LOCAL", "dst": "SVC_BACKUP@CORP.LOCAL", "kind": "HasSession"},
+    {"src": "SVC_BACKUP@CORP.LOCAL", "dst": "TIER1ADMINS@CORP.LOCAL", "kind": "ForceChangePassword"},
+    {"src": "TIER1ADMINS@CORP.LOCAL", "dst": "DOMAIN ADMINS@CORP.LOCAL", "kind": "MemberOf"},
+    {"src": "DOMAIN ADMINS@CORP.LOCAL", "dst": "CORP.LOCAL", "kind": "DCSync"},
+    {"src": "JDOE@CORP.LOCAL", "dst": "CORP.LOCAL", "kind": "GenericAll"}
+  ],
+  "owned": ["JDOE@CORP.LOCAL"],
+  "targets": ["DOMAIN ADMINS@CORP.LOCAL", "CORP.LOCAL"]
+}
