@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/redpath",
+  "version": "0.2.0",
+  "description": "JavaScript port of redpath (Cognis Neural Suite)",
+  "bin": {
+    "redpath": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
