@@ -36,7 +36,11 @@ Active Directory attack path mapper — minimum-cost paths + remediation priorit
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Load Graph
+- ✅ Shortest Path
+- ✅ Map Attack Paths
+- ✅ Remediation Priority
+- ✅ Load Graph File
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
