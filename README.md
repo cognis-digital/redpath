@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-redpath
+pip install "git+https://github.com/cognis-digital/redpath.git"
 redpath scan .            # → prioritized findings in seconds
 ```
 
@@ -50,7 +50,7 @@ Active Directory attack path mapper — minimum-cost paths + remediation priorit
 ## Quick start
 
 ```bash
-pip install cognis-redpath
+pip install "git+https://github.com/cognis-digital/redpath.git"
 redpath --version
 redpath scan .                       # scan current project
 redpath scan . --format json         # machine-readable
