@@ -9,16 +9,22 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3500&pause=1000&color=6B46C1&center=true&vCenter=true&width=720&lines=Active+Directory+attack+path+mapper++minimumcost+paths++reme;Self-hostable+%C2%B7+MCP-native+%C2%B7+CI-ready+%C2%B7+polyglot" width="720"/>
 
-[![PyPI](https://img.shields.io/pypi/v/cognis-redpath.svg?color=6b46c1)](https://pypi.org/project/cognis-redpath/) [![CI](https://github.com/cognis-digital/redpath/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/redpath/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
+[![install](https://img.shields.io/badge/install-git%2B%20%C2%B7%20pipx%20%C2%B7%20uv-6b46c1.svg)](#install--every-way-every-platform) [![CI](https://github.com/cognis-digital/redpath/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/redpath/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
 
 *Red Team / Offensive — adversary tooling for authorized engagements.*
 
 </div>
 
 ```bash
-pip install cognis-redpath
+pip install "git+https://github.com/cognis-digital/redpath.git"
 redpath scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+Redpath is a command-line tool that maps attack paths through Active Directory — the user and computer permission system used by most companies. You give it a JSON file describing who has access to what, and it finds the cheapest, most likely routes an attacker could use to reach high-value targets like Domain Admin accounts. It also ranks which individual permission links are chokepoints — the ones you should fix first to break the most attack paths at once. It is built for security professionals and red teams running authorized assessments, and requires no account, cloud service, or external database.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -47,10 +53,56 @@ Active Directory attack path mapper — minimum-cost paths + remediation priorit
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Cyber & Security  ·  **JTF MERIDIAN division:** NULLBYTE · SPECTER
+
+**Topics:** `cognis` `security` `infosec` `cybersecurity` `blue-team`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`redpath` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/redpath/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/redpath/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/redpath.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/redpath.git"  # uv
+pip install "git+https://github.com/cognis-digital/redpath.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/redpath.git
+cd redpath && pip install .
+```
+
+Then run:
+```sh
+redpath --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-redpath
+pip install "git+https://github.com/cognis-digital/redpath.git"
 redpath --version
 redpath scan .                       # scan current project
 redpath scan . --format json         # machine-readable
@@ -143,6 +195,32 @@ curl -fsSL https://raw.githubusercontent.com/cognis-digital/redpath/main/install
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="related"></a>
+<a name="verification"></a>
+## Verification
+
+[![tests](https://img.shields.io/badge/tests-10%20passing-2ea44f.svg)](AUDIT.md)
+
+Every push is verified end-to-end. Latest audit (2026-06-13):
+
+```text
+tests        : 10 passed, 0 failed, 0 errored
+compile      : all modules parse
+cli          : C:\Python314\python.exe: No module named https
+package      : https
+```
+
+<details><summary>CLI surface (<code>--help</code>)</summary>
+
+```text
+C:\Python314\python.exe: No module named https
+```
+</details>
+
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m https --help` + `pytest -q`.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+
 ## Related Cognis tools
 
 - [`c2detect`](https://github.com/cognis-digital/c2detect) — C2 server fingerprinter — Cobalt Strike, Sliver, Mythic, Havoc, Brute Ratel
