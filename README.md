@@ -20,6 +20,40 @@ pip install cognis-redpath
 redpath scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** (Python 3.9+):
+
+   ```bash
+   pip install redpath            # or: pipx install redpath
+   ```
+
+2. **Enumerate attack paths** from an attack-graph JSON file:
+
+   ```bash
+   redpath paths graph.json
+   ```
+
+3. **Get prioritized remediation** for the same graph:
+
+   ```bash
+   redpath remediate graph.json
+   ```
+
+4. **Get machine-readable output.** The global `--format` flag goes before the subcommand:
+
+   ```bash
+   redpath --format json paths graph.json > paths.json
+   ```
+
+5. **Read the result.** `paths` lists the routes an attacker can take through the graph; `remediate` ranks the cut-points that break the most paths. Parse the JSON to feed a ticketing or dashboard system.
+
+6. **Wire it into CI.** Regenerate the path analysis whenever the modeled graph changes:
+
+   ```bash
+   redpath --format json remediate graph.json > remediation.json
+   ```
+
 ## Contents
 
 - [Why redpath?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
