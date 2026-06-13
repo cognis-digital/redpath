@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/redpath.git"
 redpath scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Redpath is a command-line tool that maps attack paths through Active Directory — the user and computer permission system used by most companies. You give it a JSON file describing who has access to what, and it finds the cheapest, most likely routes an attacker could use to reach high-value targets like Domain Admin accounts. It also ranks which individual permission links are chokepoints — the ones you should fix first to break the most attack paths at once. It is built for security professionals and red teams running authorized assessments, and requires no account, cloud service, or external database.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why redpath?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -47,6 +53,42 @@ Active Directory attack path mapper — minimum-cost paths + remediation priorit
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`redpath` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/redpath/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/redpath/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/redpath.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/redpath.git"  # uv
+pip install "git+https://github.com/cognis-digital/redpath.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/redpath.git
+cd redpath && pip install .
+```
+
+Then run:
+```sh
+redpath --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
