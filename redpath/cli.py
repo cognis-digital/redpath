@@ -63,26 +63,36 @@ def main(argv: Optional[List[str]] = None) -> int:
     except FileNotFoundError:
         print(f"error: graph file not found: {args.graph}", file=sys.stderr)
         return 2
+    except PermissionError:
+        print(f"error: permission denied reading: {args.graph}", file=sys.stderr)
+        return 2
+    except OSError as exc:
+        print(f"error: cannot read graph file: {exc}", file=sys.stderr)
+        return 2
     except (ValueError, json.JSONDecodeError) as exc:
         print(f"error: invalid graph: {exc}", file=sys.stderr)
         return 2
 
-    if args.command == "paths":
-        results = map_attack_paths(g)
-        if args.format == "json":
-            print(json.dumps({"paths": results}, indent=2))
-        else:
-            _print_paths_table(results)
-        # Fail if no target is reachable at all (nothing actionable / bad input).
-        return 0 if any(r["reachable"] for r in results) else 1
+    try:
+        if args.command == "paths":
+            results = map_attack_paths(g)
+            if args.format == "json":
+                print(json.dumps({"paths": results}, indent=2))
+            else:
+                _print_paths_table(results)
+            # Fail if no target is reachable at all (nothing actionable / bad input).
+            return 0 if any(r["reachable"] for r in results) else 1
 
-    if args.command == "remediate":
-        rows = remediation_priority(g)
-        if args.format == "json":
-            print(json.dumps({"remediation": rows}, indent=2))
-        else:
-            _print_remediation_table(rows)
-        return 0 if rows else 1
+        if args.command == "remediate":
+            rows = remediation_priority(g)
+            if args.format == "json":
+                print(json.dumps({"remediation": rows}, indent=2))
+            else:
+                _print_remediation_table(rows)
+            return 0 if rows else 1
+    except Exception as exc:  # noqa: BLE001
+        print(f"error: unexpected failure during analysis: {exc}", file=sys.stderr)
+        return 2
 
     return 2
 

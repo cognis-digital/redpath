@@ -105,8 +105,14 @@ def load_graph(data: dict) -> Graph:
         raise ValueError("graph must contain a non-empty 'edges' list")
 
     g = Graph()
-    for node in data.get("nodes", []) or []:
-        g.nodes.add(str(node))
+    raw_nodes = data.get("nodes", [])
+    if not isinstance(raw_nodes, list):
+        raise ValueError("'nodes' must be a list")
+    for node in raw_nodes:
+        name = str(node).strip()
+        if name:
+            g.nodes.add(name)
+
     for i, e in enumerate(raw_edges):
         if not isinstance(e, dict):
             raise ValueError(f"edge #{i} is not an object")
@@ -114,10 +120,24 @@ def load_graph(data: dict) -> Graph:
             src, dst, kind = e["src"], e["dst"], e["kind"]
         except KeyError as exc:
             raise ValueError(f"edge #{i} missing field {exc}") from None
-        g.add_edge(str(src), str(dst), str(kind))
+        src, dst, kind = str(src).strip(), str(dst).strip(), str(kind).strip()
+        if not src:
+            raise ValueError(f"edge #{i} has an empty 'src'")
+        if not dst:
+            raise ValueError(f"edge #{i} has an empty 'dst'")
+        if not kind:
+            raise ValueError(f"edge #{i} has an empty 'kind'")
+        g.add_edge(src, dst, kind)
 
-    g.owned = [str(x) for x in (data.get("owned") or [])]
-    g.targets = [str(x) for x in (data.get("targets") or [])]
+    raw_owned = data.get("owned")
+    if raw_owned is not None and not isinstance(raw_owned, list):
+        raise ValueError("'owned' must be a list")
+    raw_targets = data.get("targets")
+    if raw_targets is not None and not isinstance(raw_targets, list):
+        raise ValueError("'targets' must be a list")
+
+    g.owned = [str(x).strip() for x in (raw_owned or []) if str(x).strip()]
+    g.targets = [str(x).strip() for x in (raw_targets or []) if str(x).strip()]
     if not g.owned:
         raise ValueError("graph must specify at least one 'owned' principal")
     if not g.targets:
@@ -255,5 +275,17 @@ def remediation_priority(g: Graph) -> List[dict]:
 
 
 def load_graph_file(path: str) -> Graph:
-    with open(path, "r", encoding="utf-8") as fh:
-        return load_graph(json.load(fh))
+    """Load a :class:`Graph` from a JSON file on disk.
+
+    Raises :class:`FileNotFoundError` if *path* does not exist,
+    :class:`PermissionError` if unreadable, :class:`json.JSONDecodeError`
+    for malformed JSON, or :class:`ValueError` for schema violations.
+    """
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+    except (FileNotFoundError, PermissionError):
+        raise
+    except OSError as exc:
+        raise OSError(f"cannot read graph file '{path}': {exc}") from exc
+    return load_graph(data)
