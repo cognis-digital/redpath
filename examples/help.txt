@@ -1,0 +1,17 @@
+$ redpath-emit --help
+
+usage: redpath [-h] [--version] [--format {table,json}] {paths,remediate} ...
+
+Active Directory attack path mapper: minimum-cost compromise paths and
+remediation priority.
+
+positional arguments:
+  {paths,remediate}
+    paths               map minimum-cost attack paths to targets
+    remediate           rank edges by remediation priority
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format

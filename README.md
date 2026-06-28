@@ -20,6 +20,63 @@ pip install cognis-redpath
 redpath scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ redpath-emit --version
+redpath 1.0.0
+```
+
+```console
+$ redpath-emit --help
+usage: redpath [-h] [--version] [--format {table,json}] {paths,remediate} ...
+
+Active Directory attack path mapper: minimum-cost compromise paths and
+remediation priority.
+
+positional arguments:
+  {paths,remediate}
+    paths               map minimum-cost attack paths to targets
+    remediate           rank edges by remediation priority
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format
+```
+
+> Blocks above are real `redpath` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"Findings": [
+    {
+        "id": "1234567890",
+        "title": "Suspicious Network Traffic",
+        "description": "Potential malicious activity detected on network port 80.",
+        "mitre_attack_id": ["T1204"],
+        "ttp_stix_id": ["attack-pattern--1-2-3"]
+    },
+    {
+        "id": "2345678901",
+        "title": "Unusual File Access",
+        "description": "File access patterns indicate potential data exfiltration.",
+        "mitre_attack_id": ["T1008"],
+        "ttp_stix_id": ["attack-pattern--4-5-6"]
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** (Python 3.9+):

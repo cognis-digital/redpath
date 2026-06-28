@@ -1,0 +1,3 @@
+$ redpath-emit --version
+
+redpath 1.0.0
